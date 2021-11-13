@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/J2EE/EJB30/StatelessEjbClass.java to edit this template
  */
 package com.cherry.tpcustomerappchaimaeben.session;
-
+import com.cherry.tpcustomerappchaimaeben.entities.Customer;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +18,7 @@ import javax.persistence.Query;
  * @author HP
  */
 @Stateless
-public class Customer {
+public class CustomerManager {
 
     @PersistenceContext(unitName = "customerPU")
     private EntityManager em;
@@ -26,7 +26,7 @@ public class Customer {
     private javax.transaction.UserTransaction utx;
 
      public List<Customer> getAllCustomers() {
-      Query query = em.createNamedQuery("Customer.findAll");   
+      Query query = em.createNamedQuery("customer.findAll");   
       return query.getResultList();  
     }  
         
