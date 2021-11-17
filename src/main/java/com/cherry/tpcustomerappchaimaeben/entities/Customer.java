@@ -86,6 +86,13 @@ public class Customer implements Serializable {
         this.customerId = customerId;
     }
 
+    public Customer(int i, int i0, int i1, String cdfds, String sdjfj, String dfdegvd, String frez, String fdrtt, int i2, String fghrf, String eetcsr, int i3) {
+        //To change body of generated methods, choose Tools | Templates.
+        this.setCustomerId(i);
+       
+        
+    }
+
     public Integer getCustomerId() {
         return customerId;
     }
@@ -206,5 +213,5 @@ public class Customer implements Serializable {
     public String toString() {
         return "com.cherry.tpcustomerappchaimaeben.entities.Customer[ customerId=" + customerId + " ]";
     }
-    
+
 }

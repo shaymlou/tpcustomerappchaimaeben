@@ -5,9 +5,6 @@
 package com.cherry.tpcustomerappchaimaeben.session;
 import com.cherry.tpcustomerappchaimaeben.entities.Customer;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.annotation.Resource;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,11 +19,10 @@ public class CustomerManager {
 
     @PersistenceContext(unitName = "customerPU")
     private EntityManager em;
-    @Resource
-    private javax.transaction.UserTransaction utx;
+    
 
      public List<Customer> getAllCustomers() {
-      Query query = em.createNamedQuery("customer.findAll");   
+      Query query = em.createNamedQuery("Customer.findAll");
       return query.getResultList();  
     }  
         
@@ -35,13 +31,8 @@ public class CustomerManager {
     }          
 
     public void persist(Customer customer) {
-        try {
-            utx.begin();
+       
             em.persist(customer);
-            utx.commit();
-        } catch (Exception e) {
-            Logger.getLogger(getClass().getName()).log(Level.SEVERE, "exception caught", e);
-            throw new RuntimeException(e);
-        }
+         
     }
 }
